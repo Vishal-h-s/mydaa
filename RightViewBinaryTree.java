@@ -1,41 +1,26 @@
 import java.util.*;
 
-class BinaryTreeNode
-{
+class BinaryTreeNode{
 	public int data; 
 	public BinaryTreeNode left, right; 
-	public BinaryTreeNode(int data)
-	{
+	public BinaryTreeNode(int data){
 		this.data = data; 
 		left = null; 
 		right = null; 
 	}
 }
 
-class Solution 
-{
-	public boolean isBalanced(BinaryTreeNode root) 
-	{
-        //Write your code here and return a boolean value
-        return checkHeight(root) != -1;
-    }
-
-    //Your supporting methods(if any) goes here
-    private int checkHeight(BinaryTreeNode node){
-        if(node == null) return 0;
-
-        int leftHeight=
-    }
+class Solution{
+    //Write your code here and return boolean value
+   
 }
 
-public class BalancedBinaryTree
-{
+public class RightViewBinaryTree{
 	static BinaryTreeNode root;
-	void insert(BinaryTreeNode temp, int key)
-    { 
-        if (temp == null) 
-		{
-            temp = new BinaryTreeNode(key);
+	static BinaryTreeNode temp = root;
+	void insert(BinaryTreeNode temp, int key){ 
+        if (temp == null) {
+            root = new BinaryTreeNode(key);
             return;
         }
         Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
@@ -61,17 +46,14 @@ public class BalancedBinaryTree
         }
     }
 
-	public static void main(String args[])
-	{
+	public static void main(String args[]){
 		Scanner sc=new Scanner(System.in);
-		BalancedBinaryTree ln=new BalancedBinaryTree();
-		Solution sol= new Solution();
-		
 		String str[]=sc.nextLine().split(" ");
+		SymmetricTree st=new SymmetricTree();
 		root=new BinaryTreeNode(Integer.parseInt(str[0]));
 		for(int i=1; i<str.length; i++)
-			ln.insert(root,Integer.parseInt(str[i]));
-
-		System.out.println(sol.isBalanced(root));
+			st.insert(root,Integer.parseInt(str[i]));
+		Solution sol= new Solution();
+		System.out.println(sol.isSymmetric(root));
 	}
 }
